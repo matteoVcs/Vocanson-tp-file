@@ -33,15 +33,10 @@ func printCode(list []string) {
 }
 
 func main() {
-	var args = os.Args
 	var data []byte
 	var list []string
 	var tmp string
-	if len(args) > 2 {
-		fmt.Println("Too many arguments")
-		return
-	}
-	data, _ = os.ReadFile(args[1])
+	data, _ = os.ReadFile("File.txt")
 	for _, letter := range data {
 		if letter == '\n' {
 			list = append(list, tmp)
@@ -50,5 +45,6 @@ func main() {
 			tmp += string(letter)
 		}
 	}
+	list = append(list, tmp)
 	printCode(list)
 }
